@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Options</title>
+<style>
+    /* Styles for the loan page */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Loan Options</h1>
+    <p>Explore our loan options below:</p>
+
+
+    <form id="/loans" method="POST">
+
+
+
+        <label for="loanType">Select Loan Type:</label>
+        <select id="loanType" name="loanType">
+            <option value="Personal">Personal Loan</option>
+            <option value="Home">Home Loan</option>
+            <option value="Auto">Auto Loan</option>
+        </select><br><br>
+        <label for="amount">Loan Amount:</label>
+        <input type="text" id="amount" name="amount" placeholder="Enter loan amount"><br><br>
+        <label for="term">Loan Term (months):</label>
+        <input type="text" id="term" name="term" placeholder="Enter loan term"><br><br>
+        <button >LOAN</button>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Withdrawal</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding:50px ;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #4CB9E7;
+}
+h1{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    padding-bottom:10px;
+}
+
+form {
+    margin-bottom:40px;
+}
+label{
+font-size:16px;
+
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+        background-color: blue;
+            border: 2px solid;
+            color:white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bolder;
+            transition-duration: 0.4s;
+            border-radius: 12px white;
+            float: right;
+
+
+
+
+    }
+    button:hover {
+        background-color:white;
+            color:blue;
+    }
+}
+
+p#error {
+    color: red;
+}
+
+p#message {
+    font-weight: bold;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    <h1>Bank Account Withdrawal</h1>
+    <form action="/withdraw" method="POST">
+
+         <label for="amount">Amount to Withdraw:</label>
+         <input type="number" name="withMoney" required placeholder="Amount"/>
+
+         <button class="submit" type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

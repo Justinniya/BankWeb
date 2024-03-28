@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Balance</title>
+    <style>
+   body {
+            background-image: url('/static/img/final.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color:white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: transparent; /* White container background */
+            padding: 20px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 0 10px #fff;
+            box-shadow: 0 0 10px #fff;
+            margin-top: 100px;
+            margin-bottom: 150px;
+            width: 500px;
+        }
+        img{
+        margin-bottom:20px;
+        border:3px solid black;
+
+        }
+        button {
+        background-color:transparent;
+            border: 2px solid;
+            color:white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bolder;
+            transition-duration: 0.4s;
+            border-radius: 12px white;
+             -webkit-box-shadow: 0 0 10px #fff;
+               box-shadow: 0 0 10px #fff;
+            float:right;
+    }
+    button:hover {
+        background-color: white;
+            color: green;
+    </style>
+
+
+
+
+</head>
+<body>
+
+
+
+  <div class = "container">
+       <h1>Transaction Details</h1>
+
+
+    <p>As of {{ date_transac }} , you deposited ₱{{ amount }}.<br> Your  current balance is: ₱{{ trans_bal }}</p>
+
+      <h2>Thank you for trusting!</h2>
+
+      <button onclick="window.location.href='{{ url_for('home') }}'">DONE</button>
+      </div>
+
+</body>
+</html>

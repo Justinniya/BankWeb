@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaction History</title>
+<style>
+    /* Styles for the transaction page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+.filters {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.filters label {
+    margin-right: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Transaction History</h1>
+    <div class="filters">
+        <label for="filter">Filter by:</label>
+        <select id="filter">
+            <option value="all">All Transactions</option>
+            <option value="Received">Received</option>
+            <option value="Transfer">Transfer</option>
+            <option value="Withdraw">Withdraw</option>
+            <option value="Paybills">Paybills</option>
+            <option value="Investment">Investment</option>
+            <option value="Loans">Loans</option>
+        </select>
+        <input type="text" id="search" placeholder="Search transactions...">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Account Balance</th>
+            </tr>
+        </thead>
+        <tbody id="transactionList">
+            <!-- Transaction rows will be dynamically added here -->
+        </tbody>
+    </table>
+</div>
+<script>
+    // Sample data for transactions (replace with actual data)
+const transactions = {{ transaction|tojson }};
+
+// Function to display transactions based on filter and search query
+function displayTransactions(filter, search) {
+    const transactionList = document.getElementById('transactionList');
+    transactionList.innerHTML = '';
+
+    transactions.forEach(transaction => {
+        if ((filter === 'all' || transaction.description.includes(filter)) &&
+            (search === '' || transaction.description.toLowerCase().includes(search.toLowerCase()))) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${transaction.date} | ${transaction.time}</td>
+                <td>${transaction.description}</td>
+                <td>${transaction.amount}</td>
+                <td>₱${transaction.balance}</td>
+            `;
+            transactionList.appendChild(row);
+        }
+    });
+}
+
+// Initial display of all transactions
+displayTransactions('all', '');
+
+// Event listeners for filter and search
+document.getElementById('filter').addEventListener('change', function() {
+    const filter = this.value;
+    const search = document.getElementById('search').value.trim();
+    displayTransactions(filter, search);
+});
+
+document.getElementById('search').addEventListener('input', function() {
+    const filter = document.getElementById('filter').value;
+    const search = this.value.trim();
+    displayTransactions(filter, search);
+});
+
+</script>
+</body>
+</html>

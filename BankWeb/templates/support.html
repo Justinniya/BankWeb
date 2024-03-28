@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Customer Support</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    justify-content: center;
+}
+.container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #4CB9E7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Add padding here */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+h1 {
+    text-align: center;
+}
+#chat {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid BLUE;
+    background-color:#FFFFEC;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#messageForm {
+    display: flex;
+}
+#messageInput {
+    flex: 1;
+    padding: 8px;
+    margin-right: 5px;
+    border: 1px solid #4CB9E7;
+    border-radius: 5px;
+}
+ button {
+        background-color: blue;
+            border: 2px solid;
+            color:white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bolder;
+            transition-duration: 0.4s;
+            border-radius: 12px white;
+            float: right;
+
+
+
+
+    }
+    button:hover {
+        background-color:white;
+            color:blue;
+    }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+    <h1>Customer Support</h1>
+    <div id="chat"></div>
+    <form id="messageForm">
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<script>
+const chatDiv = document.getElementById('chat');
+const messageForm = document.getElementById('messageForm');
+const messageInput = document.getElementById('messageInput');
+
+messageForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const message = messageInput.value.trim();
+    if (message !== '') {
+        appendMessage('You', message);
+        messageInput.value = '';
+        setTimeout(() => {
+            simulateReply();
+        }, 500);
+    }
+});
+
+function appendMessage(sender, message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatDiv.appendChild(messageElement);
+    chatDiv.scrollTop = chatDiv.scrollHeight;
+}
+
+function simulateReply() {
+    const replies = [
+        'Hello! How can I help you today?',
+        'Please provide more details about your issue.',
+        'Thank you for reaching out. Our team will assist you shortly.'
+    ];
+    const randomIndex = Math.floor(Math.random() * replies.length);
+    appendMessage('Support', replies[randomIndex]);
+
+}
+</script>
+
+
+</body>
+</html>

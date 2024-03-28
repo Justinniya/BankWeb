@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfer Money</title>
+<style>
+    /* Styles for the transfer page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+</style><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Withdrawal</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding:50px ;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: #4CB9E7;
+}
+h1{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    padding-bottom:10px;
+}
+
+form {
+    margin-bottom:40px;
+}
+label{
+font-size:16px;
+
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+        background-color: blue;
+            border: 2px solid;
+            color:white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bolder;
+            transition-duration: 0.4s;
+            border-radius: 12px white;
+            float: right;
+
+
+
+
+    }
+    button:hover {
+        background-color:white;
+            color:blue;
+    }
+}
+
+p#error {
+    color: red;
+}
+
+p#message {
+    font-weight: bold;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+    <h1>Transfer Money</h1>
+    <form action="/transfer" method="POST">
+
+         <label for="text">Enter Receiver Account Number:</label>
+         <input type="number" id="re_account_number" name="re_account_number" required placeholder=" Receiver's Account Number"/>
+
+         <label for="amount">Amount to Transfer:</label>
+         <input type="number" name="tranMoney" required placeholder="Amount"/>
+
+         <button class="submit" type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

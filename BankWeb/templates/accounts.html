@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Management</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(img/bg.avif);
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #4CB9E7;
+    border: 3px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    text-align: center;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+p{
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Account Details</h1>
+    <div id="accountInfo">
+        <p><strong>Account Number:</strong> 1234567890</p>
+        <p><strong>Account Type:</strong> Savings</p>
+        <p><strong>Balance:</strong> $1,000.00</p>
+        <p>Currency:</p>
+        <p>First Name:</p>
+        <p>Middle Name:</p>
+        <p>Last Name:</p>
+        <p>Phone Number:</p>
+        <p>Street Address:</p>
+        <p>City:</p>
+        <p>Municipality:</p>
+        <p>Zip Code:</p>
+        <p>Country:</p>
+        <p>Date of Birth:</p>
+        <p>Marital Status:</p>
+        <p>Language:</p>
+        <p>Occupation:</p>
+        <p>Employer:</p>
+        <p>Monthly Income:</p>
+        <p>Applying for Joint Account?:</p>
+        <p>Email:</p>
+        <p>Password:</p>
+
+
+    <button onclick="window.location.href = '{{url_for( 'update' ) }}';">Update Details</button>
+    <button onclick="window.location.href = '{{url_for( 'landing' ) }}';">Close Account</button>
+
+
+
+
+</div>
+<script>
+    document.getElementById('updateButton').addEventListener('click', function() {
+    // Replace this with your update logic, such as showing a form for updating details
+    alert('Redirecting to update page...');
+    window.location.href = 'update.html';
+});
+
+document.getElementById('closeButton').addEventListener('click', function() {
+
+    const confirmClose = confirm('Are you sure you want to close your account?');
+    if (confirmClose) {
+        alert('Account closed successfully.');
+
+    }
+});
+
+</script>
+</body>
+</html>

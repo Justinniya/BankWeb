@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Account Details</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url(img/bg.avif=);
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #4CB9E7;
+        border: 3px solid black;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 40px;
+        -webkit-text-stroke: 1px whitesmoke;
+        -webkit-text-fill-color:black;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Update Account Details</h2>
+    <form id="updateForm">
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber" placeholder="Account Number" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Your Password" required>
+
+
+        <button onclick="window.location.href = '{{url_for( 'accounts' ) }}';">Update Details</button>
+    </form>
+</div>
+<script>
+    document.getElementById('updateForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Get the form data
+        const accountNumber = document.getElementById('accountNumber').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Perform any validation here (e.g., check if fields are not empty)
+
+        // Update account details (for demonstration, we'll just log them to the console)
+        console.log('Account Number:', accountNumber);
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Password:', password);
+
+        // You can also submit the form data to a server using fetch or XMLHttpRequest
+        // For example:
+        /*
+        fetch('https://api.example.com/updateAccount', {
+            method: 'POST',
+            body: JSON.stringify({ accountNumber, name, email, password }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Update successful:', data);
+            // Redirect to another page or show a success message
+        })
+        .catch(error => {
+            console.error('Update failed:', error);
+            // Handle error, show error message, etc.
+        });
+        */
+
+        // Optionally, redirect to another page after the update
+        // window.location.href = 'updated.html';
+    });
+</script>
+</body>
+</html>

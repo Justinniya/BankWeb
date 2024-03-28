@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login or Sign Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <style>
+      body{
+    background-image: url('/static/img/final.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: white;
+      font-weight: 600;
+      margin-bottom:30px;
+    }
+    .container {
+      background-color:transparent; /* White container background */
+      padding: 20px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 0 10px #fff;
+       box-shadow: 0 0 10px #fff;
+      margin-top: 100px;
+      margin-bottom: 150px;
+      width:600px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+
+    }
+  .form-control {
+    height: 40px; /* Set the height to 40px (adjust as needed) */
+}
+
+    label {
+      font-weight: 500;
+      color:white;
+    }
+
+     input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    input[type="date"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    button {
+        background-color:transparent;
+            border: 2px solid;
+            color:white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bolder;
+            transition-duration: 0.4s;
+            border-radius: 12px white;
+             -webkit-box-shadow: 0 0 10px #fff;
+               box-shadow: 0 0 10px #fff;
+            float:right;
+    }
+    button:hover {
+        background-color: white;
+            color: green;
+    }
+    .nav-tabs {
+      border-bottom: none;
+    }
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover {
+      color: #03C988;
+      font-size:18px;
+      font-weight:bold;
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid #03C988;
+      margin-bottom:5px;
+      text-align:center;
+    }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container">
+  <h2 style =" text-align:center;">Login or Sign Up</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"style="text-align:center;"><a data-toggle="tab" href="#login">Login</a></li>
+    <li><a data-toggle="tab" href="#signup">Sign Up</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="login" class="tab-pane fade in active">
+      <form action="/login" method="POST">
+
+        <div class="form-group">
+          <label style="margin-top:10px;">Account Number:</label>
+          <input type="text" class="form-control" id="account_number" placeholder="Enter Account Number" name="account_number">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+        </div>
+         <button type="submit" name="submit_btn" value="submit">LOGIN</button>
+      </form>
+    </div>
+    <div id="signup" class="tab-pane fade">
+      <form action="/register" method="POST">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Last Name, First Name Middle Name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="name">Address:</label>
+          <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address">
+        </div>
+        <div class="form-group">
+          <label for="name">Birthdate:</label>
+          <input type="date" class="form-control" id="bd" placeholder="Enter Birthdate" name="birthdate">
+        </div>
+        <div class="form-group">
+          <label for="name">Gender:</label>
+          <input type="text" class="form-control" id="gender" placeholder="Female or Male" name="gender">
+        </div>
+        <div class="form-group">
+          <label for="name">Phone Number:</label>
+          <input type="number" class="form-control" id="number" placeholder="Enter phone number" name="number">
+        </div>
+         <div class="form-group">
+          <label for="name">Marital Status:</label>
+          <input type="text" class="form-control" id="status" placeholder="Enter marital status" name="status">
+        </div>
+        <div class="form-group">
+          <label for="name">Occupation:</label>
+          <input type="text" class="form-control" id="occupation" placeholder="Enter occupation" name="occupation">
+        </div>
+        <div class="form-group">
+          <label for="name">Employer:</label>
+          <input type="text" class="form-control" id="employer" placeholder="Enter employer" name="employer">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+        </div>
+         <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="re_password" placeholder="Enter password" name="re_password">
+        </div>
+         <div class="error_message">
+                {% with messages = get_flashed_messages(category_filter='email_error') %}
+                    {% if messages %}
+                        {{ messages[0] }}
+                    {% endif %}
+                {% endwith %}
+         <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the terms of service.</label><br>
+         <button type="submit" name="submit_btn" value="submit">Submit</button>
+            </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
